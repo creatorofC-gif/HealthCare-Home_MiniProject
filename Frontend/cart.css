@@ -1,0 +1,264 @@
+/* =========================
+   RESET + BASE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f9ff;
+    color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5vw;
+    background: white;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 3rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.6rem;
+    transition: 0.3s;
+}
+
+.nav-links a.active {
+    background: #2b7cff;
+    color: white;
+}
+
+.nav-links a:hover {
+    background: #eaf2ff;
+    color: #2b7cff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.cart-hero {
+    padding: 3rem 5vw;
+    text-align: center;
+    background: linear-gradient(to right, #a7c7f8, #d2deef);
+}
+
+.cart-hero h1 {
+    font-size: 2.5rem;
+}
+
+.cart-hero p {
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+/* =========================
+   CART SECTION
+========================= */
+
+.cart-section {
+    padding: 3rem 5vw;
+}
+
+/* Cart items */
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Individual item (JS will use this) */
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05);
+}
+
+/* Item left */
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.cart-item h4 {
+    margin-bottom: 0.3rem;
+}
+
+/* Item right */
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.remove-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+/* =========================
+   EMPTY CART
+========================= */
+
+.empty-cart {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.empty-cart p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.cart-summary {
+    padding: 2rem 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.summary-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.08);
+}
+
+.summary-box h2 {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+
+.cart-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.7rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.btn.primary {
+    background: #2b7cff;
+    color: white;
+}
+
+.btn.secondary {
+    background: white;
+    color: #2b7cff;
+    border: 1px solid #2b7cff;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: linear-gradient(to right, #0f1f3d, #1b2f55);
+    color: white;
+    padding: 3rem 5vw;
+    margin-top: 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 2rem;
+}
+
+.footer h3,
+.footer h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
+}
