@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Service - Healthcare Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="booking.css">
 </head>
 <body>
 
@@ -12,7 +12,6 @@
 <header class="navbar">
     <div class="logo">
         <img src="images/logo.png" alt="logo">
-        <span>HealthCare Home</span>
     </div>
 
     <nav>
@@ -20,12 +19,13 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="products.html">Medical Supplies</a></li>
-            <li><a href="booking.html" class="active">Book</a></li>
+            <li><a href="booking.html" class="active">Book Now</a></li>
             <li><a href="cart.html">🛒 Cart</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 </header>
+
 <!-- HEADER -->
 <section class="booking-hero">
     <h1>Book a Service</h1>
@@ -34,24 +34,24 @@
 
 <!-- FORM -->
 <section class="booking-form-section">
-    <form class="booking-form">
+    <form class="booking-form" method="POST">
 
         <!-- PERSONAL DETAILS -->
         <h2>Personal Details</h2>
 
         <div class="form-group">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="text" name="name" placeholder="Enter your name" required>
         </div>
 
         <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
         </div>
 
         <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" placeholder="Enter your number" required>
+            <input type="tel" name="phone" placeholder="Enter your number" required>
         </div>
 
         <!-- SERVICE DETAILS -->
@@ -59,7 +59,7 @@
 
         <div class="form-group">
             <label>Select Service</label>
-            <select required>
+            <select name="service" required>
                 <option value="">Choose a service</option>
                 <option>Caretaker</option>
                 <option>Nurse</option>
@@ -71,7 +71,7 @@
 
         <div class="form-group">
             <label>Patient Type</label>
-            <select>
+            <select name="patient_type">
                 <option>Elderly</option>
                 <option>Adult</option>
                 <option>Child</option>
@@ -83,17 +83,17 @@
 
         <div class="form-group">
             <label>Preferred Date</label>
-            <input type="date" required>
+            <input type="date" name="date" required>
         </div>
 
         <div class="form-group">
             <label>Preferred Time</label>
-            <input type="time" required>
+            <input type="time" name="time" required>
         </div>
 
         <div class="form-group">
             <label>Duration</label>
-            <select required>
+            <select name="duration" required>
                 <option value="">Select duration</option>
                 <option>1 Hour</option>
                 <option>4 Hours</option>
@@ -108,13 +108,13 @@
 
         <div class="form-group">
             <label>Address</label>
-            <textarea placeholder="Enter your address" rows="3" required></textarea>
+            <textarea name="address" placeholder="Enter your address" rows="3" required></textarea>
         </div>
 
         <!-- NOTES -->
         <div class="form-group">
             <label>Additional Notes</label>
-            <textarea placeholder="Any special requirements?" rows="3"></textarea>
+            <textarea name="notes" placeholder="Any special requirements?" rows="3"></textarea>
         </div>
 
         <!-- SUBMIT -->
@@ -127,7 +127,7 @@
 <section class="cta">
     <h2>Need Assistance?</h2>
     <p>Our support team is available 24/7 to help you</p>
-    <a href="#" class="btn secondary">Call Now</a>
+    <a href="tel:+919876543210" class="btn secondary">Call Now</a>
 </section>
 
 <!-- FOOTER -->
@@ -160,5 +160,6 @@
 
     <p class="copyright">© 2026 Healthcare Home</p>
 </footer>
+
 </body>
 </html>
