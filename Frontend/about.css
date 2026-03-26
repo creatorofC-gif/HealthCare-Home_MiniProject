@@ -1,0 +1,268 @@
+/* =========================
+   RESET + BASE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f9ff;
+    color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5vw;
+    background: white;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 3rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.6rem;
+    transition: 0.3s;
+}
+
+.nav-links a.active {
+    background: #2b7cff;
+    color: white;
+}
+
+.nav-links a:hover {
+    background: #eaf2ff;
+    color: #2b7cff;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-section {
+    padding: 4rem 5vw;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    color: #2b7cff;
+    margin-bottom: 1rem;
+}
+
+.about-section p {
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =========================
+   WHY US
+========================= */
+
+.why-us {
+    padding: 4rem 5vw;
+    text-align: center;
+}
+
+.why-us h2 {
+    font-size: 2rem;
+    color: #2b7cff;
+    margin-bottom: 2rem;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.why-card {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+}
+
+.why-card h3 {
+    color: #2b7cff;
+    margin-bottom: 0.5rem;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+    padding: 4rem 5vw;
+    background: #eef5ff;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    color: #2b7cff;
+}
+
+.contact-section p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.contact-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Contact info */
+
+.contact-info {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+.contact-info p {
+    margin-bottom: 0.8rem;
+}
+
+/* Form */
+
+.contact-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    width: 350px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2b7cff;
+    box-shadow: 0 0 0 2px rgba(43,124,255,0.1);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.7rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.btn.primary {
+    background: #2b7cff;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: linear-gradient(to right, #0f1f3d, #1b2f55);
+    color: white;
+    padding: 3rem 5vw;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 2rem;
+}
+
+.footer h3,
+.footer h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
+}
