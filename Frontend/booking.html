@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - Healthcare Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.png" alt="logo">
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HEADER -->
+<section class="booking-hero">
+    <h1>Book a Service</h1>
+    <p>Fill in your details and schedule your service easily</p>
+</section>
+
+<!-- FORM -->
+<section class="booking-form-section">
+    <form class="booking-form">
+
+        <!-- PERSONAL DETAILS -->
+        <h2>Personal Details</h2>
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter your number" required>
+        </div>
+
+        <!-- SERVICE DETAILS -->
+        <h2>Service Details</h2>
+
+        <div class="form-group">
+            <label>Select Service</label>
+            <select required>
+                <option value="">Choose a service</option>
+                <option>Caretaker</option>
+                <option>Nurse</option>
+                <option>Elderly Care</option>
+                <option>Physiotherapy</option>
+                <option>Baby Care</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Patient Type</label>
+            <select>
+                <option>Elderly</option>
+                <option>Adult</option>
+                <option>Child</option>
+            </select>
+        </div>
+
+        <!-- SCHEDULING -->
+        <h2>Schedule</h2>
+
+        <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" required>
+        </div>
+
+        <div class="form-group">
+            <label>Preferred Time</label>
+            <input type="time" required>
+        </div>
+
+        <div class="form-group">
+            <label>Duration</label>
+            <select required>
+                <option value="">Select duration</option>
+                <option>1 Hour</option>
+                <option>4 Hours</option>
+                <option>8 Hours</option>
+                <option>12 Hours</option>
+                <option>24 Hours</option>
+            </select>
+        </div>
+
+        <!-- ADDRESS -->
+        <h2>Location</h2>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea placeholder="Enter your address" rows="3" required></textarea>
+        </div>
+
+        <!-- NOTES -->
+        <div class="form-group">
+            <label>Additional Notes</label>
+            <textarea placeholder="Any special requirements?" rows="3"></textarea>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="btn primary">Confirm Booking</button>
+
+    </form>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Need Assistance?</h2>
+    <p>Our support team is available 24/7 to help you</p>
+    <a href="#" class="btn secondary">Call Now</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+
+        <div>
+            <h3>Healthcare Home</h3>
+            <p>Providing quality home care services.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="booking.html">Book Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>+91 9876543210</p>
+            <p>support@healthcarehome.com</p>
+        </div>
+
+    </div>
+
+    <p class="copyright">© 2026 Healthcare Home</p>
+</footer>
+
+</body>
+</html>
