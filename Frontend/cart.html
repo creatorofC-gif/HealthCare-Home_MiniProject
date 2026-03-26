@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Healthcare Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.png" alt="logo">
+        <span>HealthCare Home</span>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="products.html">Medical Supplies</a></li>
+            <li><a href="booking.html">Book</a></li>
+            <li><a href="cart.html" class="active">🛒 Cart</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HEADER -->
+<section class="cart-hero">
+    <h1>Your Cart</h1>
+    <p>Review your items before checkout</p>
+</section>
+
+<!-- CART ITEMS -->
+<section class="cart-section">
+
+    <div id="cart-items" class="cart-items">
+        <!-- JS will inject items here -->
+    </div>
+
+    <!-- EMPTY CART -->
+    <div id="empty-cart" class="empty-cart">
+        <p>Your cart is empty 🛒</p>
+        <a href="products.html" class="btn primary">Browse Products</a>
+    </div>
+
+</section>
+
+<!-- SUMMARY -->
+<section class="cart-summary">
+
+    <div class="summary-box">
+        <h2>Total: ₹<span id="cart-total">0</span></h2>
+
+        <div class="cart-buttons">
+            <button class="btn primary buy-now">Buy Now</button>
+            <button class="btn secondary clear-cart">Clear Cart</button>
+        </div>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+
+        <div>
+            <h3>Healthcare Home</h3>
+            <p>Providing quality home care services.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="booking.html">Book Service</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>+91 9876543210</p>
+            <p>support@healthcarehome.com</p>
+        </div>
+
+    </div>
+
+    <p class="copyright">© 2026 Healthcare Home</p>
+</footer>
+</body>
+</html>
