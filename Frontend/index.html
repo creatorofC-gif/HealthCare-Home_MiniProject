@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthcare Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
 <header class="navbar">
+    
+    <!-- LEFT: LOGO -->
     <div class="logo">
-        <img src="images/logo.png" alt="logo">
-        <span>HealthCare Home</span>
+        <img src="images/logo .png" alt="">
     </div>
 
+    <!-- RIGHT: NAV -->
     <nav>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="products.html">Medical Supplies</a></li>
-            <li><a href="booking.html">Book</a></li>
-            <li><a href="cart.html">🛒 Cart</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="#">Medical Supplies</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
+
 </header>
 
 <!-- HERO -->
@@ -38,7 +41,7 @@
         </p>
 
         <div class="hero-buttons">
-            <a href="booking.html" class="btn primary">Book a Service</a> <!--Try making it an button in in css-->
+            <button class="btn primary">Book a Service</button>
             <button class="btn secondary">Learn More</button>
         </div>
     </div>
@@ -46,7 +49,7 @@
     <br><br>
 
     <div class="hero-right">
-        <img src="images/nurse.png" alt="nurse">
+        <img src="https://i.pinimg.com/736x/af/91/52/af91529fc3ab5b212cf10a54722b1406.jpg" alt="nurse">
     </div>
 </section>
 
@@ -58,33 +61,48 @@
     <div class="services-grid">
 
         <div class="service-card">
+            <div class="service-icon blue">
+             👥
+            </div>
             <h3>Caretakers</h3>
-            <p>Experienced caretakers for daily assistance.</p>
-            <a href="services.html">Learn More →</a>
+            <p>Certified nursing professionals delivering safe and quality medical care in the comfort of your home.</p>
+            <a href="#">Learn More →</a>
         </div>
 
         <div class="service-card">
+            <div class="service-icon blue">
+             🩺
+            </div>
             <h3>Nurses</h3>
             <p>Professional medical care at your home.</p>
-            <a href="services.html">Learn More →</a>
+            <a href="#">Learn More →</a>
         </div>
 
         <div class="service-card">
+            <div class="service-icon blue">
+             ❤️
+            </div>
             <h3>Elderly Care</h3>
-            <p>Specialized support for senior citizens.</p>
-            <a href="services.html">Learn More →</a>
+            <p>Comprehensive elderly care focused on comfort, safety, and improved quality of life.</p>
+            <a href="#">Learn More →</a>
         </div>
 
         <div class="service-card">
+            <div class="service-icon blue">
+             📈
+            </div>
             <h3>Physiotherapy</h3>
-            <p>Recovery and rehabilitation services.</p>
-            <a href="services.html">Learn More →</a>
+            <p>Evidence-based physiotherapy programs tailored to restore strength and mobility..</p>
+            <a href="#">Learn More →</a>
         </div>
 
         <div class="service-card">
+            <div class="service-icon blue">
+              👶
+            </div>
             <h3>Baby Care</h3>
-            <p>Expert newborn and infant care.</p>
-            <a href="services.html">Learn More →</a>
+            <p>Trusted newborn care services ensuring comfort, hygiene, and healthy development.</p>
+            <a href="#">Learn More →</a>
         </div>
 
     </div>
@@ -97,21 +115,33 @@
 
     <div class="why-grid">
         <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
             <h3>500+</h3>
             <p>Certified Professionals</p>
         </div>
 
         <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-clock"></i>
+            </div>
             <h3>24/7</h3>
             <p>Support</p>
         </div>
 
         <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-currency-dollar"></i>
+            </div>
             <h3>30%</h3>
             <p>Cost Savings</p>
         </div>
 
         <div class="why-card">
+            <div class="why-icon">
+                <i class="bi bi-award"></i>
+            </div>
             <h3>10K+</h3>
             <p>Happy Families</p>
         </div>
@@ -149,7 +179,7 @@
 
     <div class="cta-buttons">
         <button class="btn primary">Contact Us Today</button>
-        <a href="services.html" class="btn secondary">View All Services</a> <!--Try making it an button in in css-->
+        <button class="btn secondary">View All Services</button>
     </div>
 </section>
 
@@ -164,19 +194,15 @@
 
         <div>
             <h4>Quick Links</h4>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="booking.html">Book Service</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
+            <p>Home</p>
+            <p>Services</p>
+            <p>About Us</p>
         </div>
 
         <div>
             <h4>Contact</h4>
-            <p>+91 9876543210</p>
-            <p>support@healthcarehome.com</p>
+            <p>+91 8856380929</p>
+            <p>info@healthcarehome.com</p>
         </div>
 
     </div>
