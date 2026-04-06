@@ -1,3 +1,30 @@
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
+function setCookie(name, value, days=7 ) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = `${name}=${value}${expires}; path=/`;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const nameField = document.querySelector("input[name='name']");
+    const emailField = document.querySelector("input[name='email']");
+    const phoneField = document.querySelector("input[name='phone']");
+
+    if(nameField) nameField.value = getCookie("name") || "";
+    if(emailField) emailField.value = getCookie("email") || "";
+    if(phoneField) phoneField.value = getCookie("phone") || "";
+});
+
 const BookingForm = document.querySelector(".booking-form");
 
 if (BookingForm) {
@@ -6,10 +33,15 @@ if (BookingForm) {
 
         const data = Object.fromEntries(new FormData(BookingForm));
 
+        const userId = getCookie("user_id");
+        if(!userId){
+            alert("Please log in to book a service."); //Will be replaced by redirect to login page later
+            return;
+        }
         try {
             // STEP 1: Map frontend data → backend format
             const requestBody = {
-                user_id: 1, // TEMP: hardcoded user (later from login)
+                user_id: userId, 
                 service_id: getServiceId(data.service),
                 date: data.date,
                 time: data.time
@@ -28,6 +60,10 @@ if (BookingForm) {
 
             if (response.ok) {
                 alert("✅ Booking Confirmed!");
+                setCookie("name", data.name);
+                setCookie("email", data.email);
+                setCookie("phone", data.phone);
+                
                 BookingForm.reset();
             } else {
                 alert("❌ Booking Failed");
