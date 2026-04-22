@@ -13,16 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 const buyBtn = document.querySelector(".buy-now");
-if(buyBtn){
+
+if (buyBtn) {
     buyBtn.addEventListener("click", () => {
-        if(cart.length === 0){
+
+        if (cart.length === 0) {
             alert("Your cart is empty!");
             return;
         }
-        alert(" Order Placed! Thank you for your purchase!");
-        cart = [];
-        saveCart();
-        renderCart();
+
+        
+        window.location.href = "payment.html";
     });
 }
 });

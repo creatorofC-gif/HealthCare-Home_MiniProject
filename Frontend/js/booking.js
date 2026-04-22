@@ -59,13 +59,32 @@ if (BookingForm) {
             const result = await response.json();
 
             if (response.ok) {
-                alert("✅ Booking Confirmed!");
-                setCookie("name", data.name);
-                setCookie("email", data.email);
-                setCookie("phone", data.phone);
-                
-                BookingForm.reset();
-            } else {
+        const serviceItem = {
+        name: "Service: " + data.service,
+        price: 500, // you can make dynamic later
+        quantity: 1,
+        image: "images/service.png", // optional placeholder
+        type: "service"
+    };
+
+    
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+    cart.push(serviceItem);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    
+    setCookie("name", data.name);
+    setCookie("email", data.email);
+    setCookie("phone", data.phone);
+
+    BookingForm.reset();
+
+    
+    window.location.href = "cart.html";
+} else {
                 alert("❌ Booking Failed");
                 console.error(result);
             }

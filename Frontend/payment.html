@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Payment</title>
+        <link rel="stylesheet" href="payment.css">
+
+    </head>
+    <body>
+    <div class = "payment-container">
+        <h2> Complete Your Booking</h2>
+
+        <div class = "summary">
+            <p><strong>Service:</strong> <span id= "service-name"></span></p>
+            <p><strong>Date:</strong><span id="service-date"></span></p>
+            <p><strong>Time:</strong> <span id ="service-time"></span></p>
+            <p><strong>Base Price:</strong> ₹<span id="base-price">500</span></p>
+
+        </div>
+
+        <div class="addon">
+            <button id="add-product-btn">+ Add Medical Products</button>
+        </div>
+
+        <div id="cart-preview"></div>
+        <div class="total">
+            Total: ₹<span id="total-price">500</span>
+        </div>
+        <form id = "payment-form">
+            <input type="text" placeholder="Card Holder Name" required>
+            <input type="text" placeholder="Card Number" maxlength="16" required>
+            <input type = "text" placeholder="MM/YY" required>
+            <input type="text" placeholder="CVV" maxlength="3" required>
+
+            <button type="submit"> Pay Now</button>
+        </form>
+    </div>
+
+    <div id="success-modal" class="modal">
+    <div class="modal-content">
+        <h2> Payment Successful! ✅</h2>
+        <p>Your booking has been confirmed.</p>
+        <button id="close-modal">Go to Home</button>
+    </div>
+</div>
+
+    <script src="payments.js"></script>
+    </body>
+</html>

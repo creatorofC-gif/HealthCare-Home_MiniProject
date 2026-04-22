@@ -1,0 +1,130 @@
+body {
+    font-family: Arial;
+    background: #f4f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.payment-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 380px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.summary, .addon, .total {
+    margin: 1rem 0;
+}
+
+
+.addon button {
+    width: 100%;
+    padding: 10px;
+    background: #f0f4ff;
+    border: 1px solid #2b7cff;
+    color: #2b7cff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.addon button:hover {
+    background: #2b7cff;
+    color: white;
+}
+
+/* cart deco */
+#cart-preview {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* total deco */
+.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* input */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* pay button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #2b7cff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #1f5ed6;
+}
+
+/* modal deco */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    animation: popIn 0.3s ease;
+}
+
+.modal-content button {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background: #2b7cff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background: #1f5ed6;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
