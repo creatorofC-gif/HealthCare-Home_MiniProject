@@ -2,9 +2,26 @@ const basePrice = 500;
 
 const totalEl = document.getElementById("total-price");
 const cartPreview = document.getElementById("cart-preview");
+const summary = window.AppSession ? window.AppSession.get("booking_summary") || {} : JSON.parse(localStorage.getItem("booking_summary") || "{}");
+
+const serviceNameEl = document.getElementById("service-name");
+const serviceDateEl = document.getElementById("service-date");
+const serviceTimeEl = document.getElementById("service-time");
 
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = window.AppSession ? window.AppSession.get("cart") || [] : JSON.parse(localStorage.getItem("cart")) || [];
+
+if (serviceNameEl) {
+    serviceNameEl.innerText = summary.service || "Selected Service";
+}
+
+if (serviceDateEl) {
+    serviceDateEl.innerText = summary.date || "-";
+}
+
+if (serviceTimeEl) {
+    serviceTimeEl.innerText = summary.time || "-";
+}
 
 //calculate cart total
 function getCartTotal() {
@@ -57,7 +74,7 @@ document.getElementById("payment-form").addEventListener("submit", async (e) => 
     const finalAmount = basePrice + getCartTotal();
 
     const paymentData = {
-        booking_id: localStorage.getItem("booking_id"),
+        booking_id: window.AppSession ? window.AppSession.get("booking_id") : localStorage.getItem("booking_id"),
         amount: finalAmount,
         items: cart
     };
@@ -73,7 +90,15 @@ document.getElementById("payment-form").addEventListener("submit", async (e) => 
 
         if (res.ok) {
             modal.style.display = "flex";
-            localStorage.removeItem("cart");
+            if (window.AppSession) {
+                window.AppSession.remove("cart");
+                window.AppSession.remove("booking_id");
+                window.AppSession.remove("booking_summary");
+            } else {
+                localStorage.removeItem("cart");
+                localStorage.removeItem("booking_id");
+                localStorage.removeItem("booking_summary");
+            }
         } else {
             alert("Payment Failed");
         }
@@ -82,7 +107,6 @@ document.getElementById("payment-form").addEventListener("submit", async (e) => 
         alert("Server error");
     }
 });
-
 
 closeBtn.addEventListener("click", () => {
     window.location.href = "index.html";

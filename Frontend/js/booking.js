@@ -1,9 +1,9 @@
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+    if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+    return '';
 }
-
 
 function setCookie(name, value, days=7 ) {
     let expires = "";
@@ -16,13 +16,16 @@ function setCookie(name, value, days=7 ) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    const nameField = document.querySelector("input[name='name']");
+    const nameField  = document.querySelector("input[name='name']");
     const emailField = document.querySelector("input[name='email']");
     const phoneField = document.querySelector("input[name='phone']");
 
-    if(nameField) nameField.value = getCookie("name") || "";
-    if(emailField) emailField.value = getCookie("email") || "";
-    if(phoneField) phoneField.value = getCookie("phone") || "";
+    // Read from cookies first; fall back to AppSession user object
+    const stored = window.AppSession ? window.AppSession.get('user') : JSON.parse(localStorage.getItem('user') || 'null');
+
+    if (nameField)  nameField.value  = getCookie('name')  || (stored && stored.name)  || '';
+    if (emailField) emailField.value = getCookie('email') || (stored && stored.email) || '';
+    if (phoneField) phoneField.value = getCookie('phone') || (stored && stored.phone) || '';
 });
 
 const BookingForm = document.querySelector(".booking-form");
@@ -33,9 +36,10 @@ if (BookingForm) {
 
         const data = Object.fromEntries(new FormData(BookingForm));
 
-        const userId = getCookie("user_id");
+        const storedUser = window.AppSession ? window.AppSession.get('user') : JSON.parse(localStorage.getItem('user') || 'null');
+        const userId = getCookie("user_id") || (storedUser && storedUser.id);
         if(!userId){
-            alert("Please log in to book a service."); //Will be replaced by redirect to login page later
+            alert("Please log in to book a service."); 
             return;
         }
         try {
@@ -59,32 +63,40 @@ if (BookingForm) {
             const result = await response.json();
 
             if (response.ok) {
-        const serviceItem = {
-        name: "Service: " + data.service,
-        price: 500, // you can make dynamic later
-        quantity: 1,
-        image: "images/service.png", // optional placeholder
-        type: "service"
-    };
+                localStorage.setItem("booking_id", result.booking.id);
+                localStorage.setItem("booking_summary", JSON.stringify({
+                    service: data.service,
+                    date: data.date,
+                    time: data.time
+                }));
 
-    
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-
-    cart.push(serviceItem);
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    
-    setCookie("name", data.name);
-    setCookie("email", data.email);
-    setCookie("phone", data.phone);
-
-    BookingForm.reset();
-
-    
-    window.location.href = "cart.html";
-} else {
+                const serviceItem = {
+                    name: "Service: " + data.service,
+                    price: 500, // you can make dynamic later
+                    quantity: 1,
+                    image: "images/service.png", // optional placeholder
+                    type: "service"
+                };
+            
+                let cart = window.AppSession ? window.AppSession.get("cart") : JSON.parse(localStorage.getItem("cart"));
+                if (!cart) cart = [];
+            
+                cart.push(serviceItem);
+            
+                if (window.AppSession) {
+                    window.AppSession.set("cart", cart);
+                } else {
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                }
+            
+                setCookie("name", data.name);
+                setCookie("email", data.email);
+                setCookie("phone", data.phone);
+            
+                BookingForm.reset();
+            
+                window.location.href = "cart.html";
+            } else {
                 alert("❌ Booking Failed");
                 console.error(result);
             }
@@ -95,7 +107,6 @@ if (BookingForm) {
         }
     });
 }
-
 
 function getServiceId(serviceName) {
     const services = {

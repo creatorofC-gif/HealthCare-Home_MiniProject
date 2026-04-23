@@ -1,7 +1,11 @@
-window.cart = JSON.parse(localStorage.getItem("cart")) || [];
+window.cart = window.AppSession ? window.AppSession.get("cart") || [] : JSON.parse(localStorage.getItem("cart")) || [];
 
 window.saveCart = function(){
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (window.AppSession) {
+        window.AppSession.set("cart", cart);
+    } else {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
 }
 window.removeItem = function(index){
     cart.splice(index, 1);
