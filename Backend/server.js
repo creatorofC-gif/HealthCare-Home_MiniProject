@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const pool = require('./db');
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
 const path = require('path');
 
@@ -46,11 +47,13 @@ app.post('/register', async (req, res) => {
   }
 
   try {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
     const newUser = await pool.query(
       `INSERT INTO users (name, email, password, role, phone)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING *`,
-      [name, email, password, 'user', phone || null]
+      [name, email, hashedPassword, 'user', phone || null]
     );
 
     res.status(201).json({
@@ -116,7 +119,12 @@ app.put('/users/:id', async (req, res) => {
     }
 
     const currentUser = existingUser.rows[0];
-    const nextPassword = password && password.trim() ? password : currentUser.password;
+    let nextPassword = currentUser.password;
+    
+    if (password && password.trim()) {
+      const salt = await bcrypt.genSalt(10);
+      nextPassword = await bcrypt.hash(password.trim(), salt);
+    }
 
     const result = await pool.query(
       `UPDATE users
@@ -184,11 +192,19 @@ app.post('/login', async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM users WHERE email = $1 AND password = $2 LIMIT 1',
-      [email, password]
+      'SELECT * FROM users WHERE email = $1 LIMIT 1',
+      [email]
     );
 
     if (result.rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+
+    const user = result.rows[0];
+    // Check if hashed or plaintext (fallback for existing test accounts)
+    const isMatch = await bcrypt.compare(password, user.password) || password === user.password;
+
+    if (!isMatch) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
