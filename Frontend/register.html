@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your HealAtHome account to book home healthcare services.">
+    <title>Register — HealAtHome</title>
+    <link rel="stylesheet" href="auth.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.png" alt="HealAtHome logo">
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="products.html">Medical Supplies</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="about.html">About</a></li>
+            <!-- nav.js injects auth links -->
+        </ul>
+    </nav>
+</header>
+
+<!-- REGISTER FORM -->
+<section class="auth-section">
+    <div class="auth-box">
+        <h1>Create Account</h1>
+        <p>Register to book home healthcare services</p>
+
+        <form id="registerForm" autocomplete="on" novalidate>
+            <input type="text"     id="reg-name"     name="name"     placeholder="Full Name"     required autocomplete="name">
+            <input type="email"    id="reg-email"    name="email"    placeholder="Email address" required autocomplete="email">
+            <input type="tel"      id="reg-phone"    name="phone"    placeholder="Phone number (optional)" autocomplete="tel">
+            <input type="password" id="reg-password" name="password" placeholder="Password"      required autocomplete="new-password">
+            <button type="submit" class="btn primary" id="register-btn">Create Account</button>
+        </form>
+
+        <p id="message"></p>
+        <p class="switch-link">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <h3>HealAtHome</h3>
+            <p>Providing quality home care services.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="booking.html">Book Service</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>+91 9876543210</p>
+            <p>support@healathome.com</p>
+        </div>
+    </div>
+    <p class="copyright">© 2026 HealAtHome. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

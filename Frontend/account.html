@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your HealAtHome profile, view past bookings and payment history.">
+    <title>My Account — HealAtHome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="account.css">
+    <script src="js/nav.js" defer></script>
+    <script src="js/account.js" defer></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.png" alt="HealAtHome logo">
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="products.html">Medical Supplies</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ACCOUNT PAGE -->
+<main class="account-page">
+
+    <!-- Welcome Banner -->
+    <section class="welcome-panel">
+        <p class="eyebrow">My Account</p>
+        <h1 id="welcome-name">Your Account</h1>
+    </section>
+
+    <!-- Grid: Profile + History -->
+    <section class="account-grid">
+
+        <!-- Profile Card -->
+        <div class="card profile-card">
+            <div class="card-header">
+                <h2>Profile Details</h2>
+                <p>Update your saved contact information.</p>
+            </div>
+
+            <form id="account-form" class="account-form" novalidate>
+                <label for="account-name">Full Name</label>
+                <input id="account-name" name="name" type="text" required autocomplete="name">
+
+                <label for="account-email">Email Address</label>
+                <input id="account-email" name="email" type="email" required autocomplete="email">
+
+                <label for="account-phone">Phone Number</label>
+                <input id="account-phone" name="phone" type="tel" autocomplete="tel" placeholder="Optional">
+
+                <label for="account-password">New Password</label>
+                <input id="account-password" name="password" type="password" placeholder="Leave blank to keep current" autocomplete="new-password">
+
+                <button type="submit" class="btn primary" id="save-btn">Save Changes</button>
+                <p id="account-message" class="message" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <!-- Order History Card -->
+        <div class="card history-card">
+            <div class="card-header">
+                <h2>Past Orders</h2>
+                <p>Your recent bookings and payment status.</p>
+            </div>
+
+            <div id="history-list" class="history-list">
+                <p class="empty-state">Loading your order history…</p>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <h3>HealAtHome</h3>
+            <p>Providing quality home care services.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="booking.html">Book Service</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>+91 9876543210</p>
+            <p>support@healathome.com</p>
+        </div>
+    </div>
+    <p class="copyright">© 2026 HealAtHome. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
