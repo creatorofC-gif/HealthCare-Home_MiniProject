@@ -22,6 +22,7 @@ function clearSession() {
         document.cookie = `${k}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
     });
     localStorage.removeItem('user');
+    localStorage.removeItem('cart');
 }
 
 /*Session helpers  */

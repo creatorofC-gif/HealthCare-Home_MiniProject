@@ -22,6 +22,7 @@ function clearSession() {
         document.cookie = `${k}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
     });
     localStorage.removeItem('user');
+    localStorage.removeItem('cart');
 }
 
 /* Session */
@@ -101,7 +102,24 @@ function renderHistory(history) {
         return;
     }
 
-    historyList.innerHTML = history.map((item) => `
+    historyList.innerHTML = history.map((item) => {
+        const isPaid = item.payment_status && (item.payment_status.toLowerCase() === 'paid' || item.payment_status.toLowerCase() === 'confirmed' || item.payment_status.toLowerCase() === 'completed');
+        
+        let actionHtml = '';
+        if (!isPaid) {
+            actionHtml = `
+            <div class="history-actions" style="margin-top: 1rem;">
+                <button class="btn primary complete-payment-btn" 
+                    data-id="${item.booking_id}" 
+                    data-service="${item.service_id || ''}" 
+                    data-date="${item.date || ''}" 
+                    data-time="${item.time || ''}">
+                    Complete Payment
+                </button>
+            </div>`;
+        }
+
+        return `
         <article class="history-item">
             <h3>Booking #${item.booking_id}</h3>
             <div class="history-meta">
@@ -114,8 +132,31 @@ function renderHistory(history) {
                 <span class="pill booking">Booking: ${item.booking_status || 'pending'}</span>
                 <span class="pill payment">Payment: ${item.payment_status || 'pending'}</span>
             </div>
+            ${actionHtml}
         </article>
-    `).join('');
+        `;
+    }).join('');
+
+    const paymentBtns = historyList.querySelectorAll('.complete-payment-btn');
+    paymentBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const bookingId = e.target.getAttribute('data-id');
+            const summary = {
+                service: e.target.getAttribute('data-service') || "Selected Service",
+                date: e.target.getAttribute('data-date') || "-",
+                time: e.target.getAttribute('data-time') || "-"
+            };
+            
+            if (window.AppSession) {
+                window.AppSession.set("booking_id", bookingId);
+                window.AppSession.set("booking_summary", summary);
+            } else {
+                localStorage.setItem("booking_id", bookingId);
+                localStorage.setItem("booking_summary", JSON.stringify(summary));
+            }
+            window.location.href = 'payment.html';
+        });
+    });
 }
 
 /* Load account page*/

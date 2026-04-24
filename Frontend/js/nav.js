@@ -38,6 +38,7 @@
         },
         clearUser: function() {
             this.remove('user');
+            this.remove('cart');
             ['user_id', 'name', 'email', 'phone'].forEach(k => {
                 document.cookie = `${k}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
             });
