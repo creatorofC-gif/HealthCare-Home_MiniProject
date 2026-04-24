@@ -1,0 +1,285 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue:       #2b7cff;
+    --blue-dark:  #1f5ed6;
+    --blue-soft:  #eaf2ff;
+    --text:       #1e2a3a;
+    --muted:      #64748b;
+    --border:     #dce4f0;
+    --bg:         #f0f5ff;
+    --white:      #ffffff;
+    --red:        #e74c3c;
+    --green:      #27ae60;
+    --radius-lg:  1.2rem;
+    --radius-md:  0.75rem;
+    --shadow-md:  0 0.8rem 2.4rem rgba(43,124,255,0.14);
+    --transition: 0.25s ease;
+}
+
+html { font-size: 100%; }
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 40%, #f0fdf4 100%);
+    min-height: 100vh;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 5vw;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 2.8rem;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    background: var(--blue-soft);
+    color: var(--blue);
+}
+
+.nav-links a.active {
+    background: var(--blue);
+    color: var(--white);
+}
+
+/* ── AUTH SECTION ── */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 5rem);
+    padding: 2rem 1rem;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(2rem); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-box {
+    background: var(--white);
+    padding: 2.6rem 2.4rem;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    animation: slideUp 0.45s cubic-bezier(.22,.68,0,1.2) both;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), #60a5fa, var(--blue-dark));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.auth-box h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+}
+
+.auth-box > p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.4rem;
+}
+
+/* ── FORM ── */
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text);
+    background: #f8faff;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+}
+
+.auth-box input::placeholder { color: #aab4c4; }
+
+.auth-box input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(43,124,255,0.15);
+    background: var(--white);
+}
+
+/* ── BUTTON ── */
+.btn.primary {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    box-shadow: 0 0.4rem 1.2rem rgba(43,124,255,0.35);
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.7rem 1.8rem rgba(43,124,255,0.45);
+    filter: brightness(1.06);
+}
+
+.btn.primary:active {
+    transform: translateY(0);
+    box-shadow: 0 0.3rem 0.8rem rgba(43,124,255,0.3);
+}
+
+/* STATUS MESSAGES */
+#loginMessage,
+#message {
+    display: block;
+    min-height: 1.4rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    transition: all var(--transition);
+}
+
+.msg-success { color: var(--green); background: #f0fdf4; }
+.msg-error   { color: var(--red);   background: #fff5f5; }
+
+/* FOOTER LINK LINE */
+.auth-box p.switch-link {
+    margin-top: 1.3rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.auth-box p.switch-link a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.auth-box p.switch-link a:hover {
+    color: var(--blue-dark);
+    text-decoration: underline;
+}
+
+/* FOOTER */
+.footer {
+    background: #0f2748;
+    color: white;
+    padding: 2.5rem 5vw 1.5rem;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer h3 { margin-bottom: 0.5rem; }
+.footer h4 { margin-bottom: 0.5rem; color: #cbd5e1; }
+.footer p  { color: #94a3b8; font-size: 0.9rem; }
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition);
+}
+
+.footer-links a:hover { color: white; }
+
+.copyright {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #475569;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+    .auth-box { padding: 2rem 1.4rem; }
+    .auth-box h1 { font-size: 1.55rem; }
+    .navbar { justify-content: center; }
+    .nav-links { justify-content: center; }
+    .footer-grid { flex-direction: column; }
+}

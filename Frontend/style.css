@@ -884,7 +884,30 @@ section {
     text-align: center;
 }
 
+/* logout*/
+
+.btn-nav-logout {
+    background: linear-gradient(135deg, #2b7cff, #1f5ed6);
+    border: none;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    box-shadow: 0 0.2rem 0.6rem rgba(43, 124, 255, 0.3);
+}
+
+.btn-nav-logout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.4rem 1rem rgba(43, 124, 255, 0.4);
+    filter: brightness(1.06);
+}
+
 @media (max-width: 768px) {
+
     .navbar {
         justify-content: center;
         gap: 1rem;
